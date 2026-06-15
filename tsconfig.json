@@ -14,7 +14,11 @@
     "jsx": "react-jsx",
     "rootDirs": [".", "./.react-router/types"],
     "paths": {
-      "~/*": ["./app/*"]
+      "@/*": ["./app/*"],
+      "@views/*": ["./app/views/*"],
+      "@routes/*": ["./app/routes/*"],
+      "@components/*": ["./app/components/*"],
+      "@constants/*": ["./app/constants/*"],
     },
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
