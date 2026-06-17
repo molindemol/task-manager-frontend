@@ -10,10 +10,13 @@ export function BoardOverviewCard(prop : BoardOverviewCardProps){
     const { id, name, description, createdAt } = board;
     const createdAtString = new Date(createdAt);
     return (
-        <div className={"bg-mist-50 shadow-md rounded-2xl p-4 hover:scale-105 transition flex flex-col justify-between"}>
-            <h1 className="font-bold">{name}</h1>
-            <span className="text-sm">{description}</span>
-            <span className="self-end">{createdAtString.toLocaleDateString()}</span>
-        </div>
+        <button className={"bg-mist-50 shadow-md rounded-2xl text-left p-4 hover:scale-105 transition flex flex-col justify-between cursor-pointer"}>
+            <div className="flex flex-col">
+                <h1 className="font-bold">{name}</h1>
+                <span className="text-sm">{description}</span>
+            </div>
+            
+            <span className="self-end text-sm">{createdAtString.toLocaleDateString()}</span>
+        </button>
     )
 }
