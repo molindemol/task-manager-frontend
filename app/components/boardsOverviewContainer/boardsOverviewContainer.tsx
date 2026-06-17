@@ -3,6 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { BoardOverviewCard } from "./boardOverviewCard/boardOverviewCard";
 import type { Board } from "@/types/board";
 import { PlaceholderCard } from "../placeholderCard/placeholderCard";
+import AddCard from "../addCard/addCard";
+import { useState } from "react";
+import Modal from "../modal/modal";
 
 async function fetchAllBoards(){
     let res = await fetch(`${API_URL}/Board`,{
@@ -14,14 +17,27 @@ async function fetchAllBoards(){
 }
 
 export default function BoardsOverviewContainer(){
-    const {data : boards , isLoading } = useQuery({queryKey: ["allBoards"], queryFn: fetchAllBoards})
+    const {data : boards , isLoading, isError, isSuccess } = useQuery({queryKey: ["allBoards"], queryFn: fetchAllBoards})
+    const [isModalShow, setIsModalShow] = useState(false);
     return (
-        <section className="container h-5/6 w-5/6 bg-sky-100 shadow-2xl rounded-2xl p-5 overflow-y-scroll flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-4 gap-4">
-            {!isLoading && boards.map((board : Board) => (
+    <>
+        <section className="container h-5/6 w-5/6 bg-sky-100 shadow-2xl rounded-2xl p-5  flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-4 gap-4">
+            {!isLoading && !isError && isSuccess && boards.map((board : Board) => (
                 <BoardOverviewCard board={board} />
             ))}
+            
             {isLoading && [...Array(4)].map(() => (<PlaceholderCard />)) }
-           
+            <AddCard setIsBool={setIsModalShow} isBool={isModalShow} />
         </section>
+        {isModalShow && 
+            <Modal setIsModalShow={setIsModalShow} >
+                <div className="w-1/2 h-1/2 z-10 rounded-2xl bg-mist-50">
+
+                </div>
+            </Modal>
+        }
+        
+    </>
+        
     )
 }
