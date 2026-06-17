@@ -16,7 +16,7 @@ async function fetchAllBoards(){
 export default function BoardsOverviewContainer(){
     const {data : boards , isLoading } = useQuery({queryKey: ["allBoards"], queryFn: fetchAllBoards})
     return (
-        <section className="container h-5/6 w-5/6 bg-sky-100 shadow-2xl rounded-2xl p-5 grid grid-cols-4 grid-rows-4 gap-4">
+        <section className="container h-5/6 w-5/6 bg-sky-100 shadow-2xl rounded-2xl p-5 overflow-y-scroll flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-4 gap-4">
             {!isLoading && boards.map((board : Board) => (
                 <BoardOverviewCard board={board} />
             ))}
