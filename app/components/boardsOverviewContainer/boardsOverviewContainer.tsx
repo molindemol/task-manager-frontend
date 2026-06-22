@@ -6,6 +6,7 @@ import { PlaceholderCard } from "../placeholderCard/placeholderCard";
 import AddCard from "../addCard/addCard";
 import { useState } from "react";
 import Modal from "../modal/modal";
+import BoardAddForm from "./boardAddForm/boardAddForm";
 
 async function fetchAllBoards(){
     let res = await fetch(`${API_URL}/Board`,{
@@ -21,9 +22,9 @@ export default function BoardsOverviewContainer(){
     const [isModalShow, setIsModalShow] = useState(false);
     return (
     <>
-        <section className="container h-5/6 w-5/6 bg-sky-100 shadow-2xl rounded-2xl p-5 flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-4 gap-4">
+        <section className="container h-5/6 bg-sky-100 shadow-2xl rounded-2xl p-5 flex flex-col lg:grid lg:grid-cols-4 lg:grid-rows-4 gap-4">
             {!isLoading && !isError && isSuccess && boards.map((board : Board) => (
-                <BoardOverviewCard board={board} />
+                <BoardOverviewCard key={board.id} board={board} />
             ))}
             
             {isLoading && [...Array(4)].map(() => (<PlaceholderCard />)) }
@@ -31,9 +32,7 @@ export default function BoardsOverviewContainer(){
         </section>
         {isModalShow && 
             <Modal setIsModalShow={setIsModalShow} >
-                <div className="w-1/2 h-1/2 rounded-2xl bg-mist-50">
-
-                </div>
+                <BoardAddForm />
             </Modal>
         }
         
