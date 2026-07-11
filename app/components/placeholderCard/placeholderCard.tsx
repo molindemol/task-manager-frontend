@@ -1,11 +1,12 @@
-export function PlaceholderCard(){
+export function PlaceholderCard() {
     return (
-        <div className={"bg-mist-50 shadow-md rounded-2xl p-4 flex flex-col justify-between animate-pulse"}>
+        <div className="flex min-h-40 flex-col justify-between gap-2 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
             <div className="flex flex-col gap-2">
-                <span className="animate-pulse rounded-lg bg-mist-200 h-5 w-1/2" />
-                <span className="animate-pulse rounded-lg bg-mist-100 h-8 w-1/2" />
+                <span className="h-5 w-1/2 animate-pulse rounded-lg bg-mist-200" />
+                <span className="h-4 w-4/5 animate-pulse rounded-lg bg-mist-100" />
+                <span className="h-4 w-2/3 animate-pulse rounded-lg bg-mist-100" />
             </div>
-            <span className=" self-end animate-pulse rounded-lg bg-mist-100 h-4 w-1/2" />
+            <span className="h-3 w-1/3 animate-pulse rounded-lg bg-mist-100" />
         </div>
     )
 }

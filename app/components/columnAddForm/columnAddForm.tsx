@@ -19,7 +19,7 @@ export function ColumnAddForm({ boardId, position, onClose }: Props) {
     return (
         <form
             onSubmit={handleSubmit}
-            className="container max-w-md p-6 flex flex-col gap-4 rounded-2xl bg-mist-50 shadow-2xl"
+            className="w-full max-w-md p-6 flex flex-col gap-4 rounded-2xl bg-mist-50 shadow-2xl"
         >
             <h2 className="text-lg font-bold text-slate-800">New column</h2>
 

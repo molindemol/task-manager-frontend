@@ -35,3 +35,11 @@ export function useCreateBoard() {
         onSuccess: () => queryClient.invalidateQueries({ queryKey: boardKeys.all }),
     });
 }
+
+export function useDeleteBoard() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: (id: number) => apiFetch<void>(`/Board/${id}`, { method: "DELETE" }),
+        onSuccess: () => queryClient.invalidateQueries({ queryKey: boardKeys.all }),
+    });
+}

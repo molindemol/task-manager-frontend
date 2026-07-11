@@ -2,9 +2,8 @@ import BoardsOverviewContainer from "@/components/boardsOverviewContainer/boards
 
 export function HomePage() {
   return (
-    <main className={"flex items-center justify-center w-screen h-screen"}>
-        <BoardsOverviewContainer />
+    <main className="flex min-h-screen w-full justify-center bg-gradient-to-br from-white via-sky-50 to-indigo-50 px-4 py-12 sm:py-16">
+      <BoardsOverviewContainer />
     </main>
   );
 }
-

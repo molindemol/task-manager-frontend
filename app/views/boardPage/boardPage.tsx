@@ -61,7 +61,7 @@ export function BoardPage() {
 
     if (isLoading) {
         return (
-            <main className="w-screen h-screen flex items-center justify-center text-slate-500">
+            <main className="w-full h-screen flex items-center justify-center text-slate-500">
                 Loading board...
             </main>
         );
@@ -69,7 +69,7 @@ export function BoardPage() {
 
     if (isError || !board) {
         return (
-            <main className="w-screen h-screen flex flex-col gap-4 items-center justify-center text-slate-600">
+            <main className="w-full h-screen flex flex-col gap-4 items-center justify-center text-slate-600 p-4 text-center">
                 <p>Could not load this board.</p>
                 <Link to="/" className="text-sky-600 hover:text-sky-500 flex items-center gap-2">
                     <ArrowLeft className="size-4" />
@@ -229,14 +229,14 @@ export function BoardPage() {
     }
 
     return (
-        <main className="w-screen h-screen flex flex-col p-6 gap-6 overflow-hidden">
+        <main className="w-full h-screen flex flex-col p-4 sm:p-6 gap-4 sm:gap-6 overflow-hidden">
             <header className="flex flex-col gap-1">
                 <Link to="/" className="text-sm text-sky-600 hover:text-sky-500 flex items-center gap-2 w-fit">
                     <ArrowLeft className="size-4" />
                     Back to boards
                 </Link>
-                <h1 className="text-2xl font-bold text-slate-800">{board.name}</h1>
-                {board.description && <p className="text-slate-500">{board.description}</p>}
+                <h1 className="text-xl sm:text-2xl font-bold text-slate-800">{board.name}</h1>
+                {board.description && <p className="text-sm sm:text-base text-slate-500">{board.description}</p>}
             </header>
 
             <DndContext

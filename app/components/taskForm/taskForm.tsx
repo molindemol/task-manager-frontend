@@ -48,7 +48,7 @@ export function TaskForm({ boardId, columns, defaultColumnId, task, onClose }: P
     return (
         <form
             onSubmit={handleSubmit}
-            className="container max-w-lg p-6 flex flex-col gap-4 rounded-2xl bg-mist-50 shadow-2xl"
+            className="w-full max-w-lg p-6 flex flex-col gap-4 rounded-2xl bg-mist-50 shadow-2xl"
         >
             <h2 className="text-lg font-bold text-slate-800">{isEdit ? "Edit task" : "New task"}</h2>
 
@@ -75,7 +75,7 @@ export function TaskForm({ boardId, columns, defaultColumnId, task, onClose }: P
                 />
             </label>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <label className="flex flex-col gap-1 text-sm text-slate-600">
                     Status
                     <select
