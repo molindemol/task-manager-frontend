@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/project_test_on_edit.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/project_typecheck_on_stop.sh"
+          },
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/project_visual_verify_on_stop.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
